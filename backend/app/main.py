@@ -1,6 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.models import ToDo
+from app.database import engine
 app = FastAPI(title="Todo API")
+
+# Create DB tables
+ToDo.metadata.create_all(bind=engine)
+
 
 app.add_middleware(
     CORSMiddleware,

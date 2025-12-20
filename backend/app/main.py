@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.models import ToDo
 from app.database import engine
+from app.routes.todo import router as todo_router
 app = FastAPI(title="Todo API")
 
 # Create DB tables
@@ -15,6 +16,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(todo_router)
 @app.get("/")
 def root():
     return {"message": "FastAPI is running 🚀"}

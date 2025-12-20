@@ -13,7 +13,7 @@ class TodoCreate(TodoBase):
 
 
 class TodoUpdate(TodoBase):
-    is_completed=Optional[bool]=None
+    is_completed:Optional[bool]=None
 
 
 class TodoResponse(TodoBase):

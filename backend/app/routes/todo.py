@@ -51,5 +51,15 @@ def update_todo(todo_id:int,todo_update:TodoUpdate,db:Session=Depends(get_db)):
     db.refresh(todo)
     return todo
 
+@router.delete("/{todo_id}",status_code=status.HTTP_204_NO_CONTENT)
+def delete_todo(todo_id:int,db:Session=Depends(get_db)):
+    todo = db.query(ToDo).filter(ToDo.id==todo_id).first()
+    if todo is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Data not found")
+    else:
+        db.delete(todo)
+        db.commit()
+
+
 
 

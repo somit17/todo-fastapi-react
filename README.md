@@ -7,7 +7,7 @@ A full-stack Todo application built using modern web technologies.
 - **Frontend:** React (Vite + TypeScript)
 - **Database:** PostgreSQL
 - **ORM:** SQLAlchemy
-- **Styling:** Tailwind CSS
+- **Styling:** Prime React
 
 ---
 

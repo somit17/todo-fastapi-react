@@ -6,6 +6,7 @@ import './App.css';
 import { useState } from 'react';
 import { Card } from 'primereact/card';
 import { InputText } from 'primereact/inputtext';
+import TodoList from './components/TodoList/TodoList';
 
 function App() {
   const API_URL = import.meta.env.VITE_API_BASE_URL;
@@ -25,17 +26,7 @@ function App() {
   };
   return (
     <div className="flex justify-content-center mt-6">
-      <Card title="Todo App" className="w-4">
-        <div className="flex gap-2">
-          <InputText
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter todo title"
-            className="flex-1"
-          />
-          <Button label="Add" icon="pi pi-plus" onClick={addTodo} />
-        </div>
-      </Card>
+      <TodoList/>
     </div>
   );
 }
